@@ -656,7 +656,6 @@ label start:
         return
 
     label stopFlirt:
-
         raven "What do YOU want to do? Do you want to watch a movie or something?"
 
         raven "Can you play a horror movie? I love those so much!"
