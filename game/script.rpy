@@ -591,6 +591,7 @@ label start:
                 show ravenblush at center:
                     zoom 0.5
                 raven "Sure! I'd be glad to go to your place!"
+                hide ravendefault
                 jump playerHouse
                 return
             "Her place":
@@ -609,6 +610,7 @@ label start:
 
     label playerHouse:
         hide ravenblush
+        
         "We leave the carnival with Raven and go to my apartment."
         hide carnival
         "We talked some more about what we did, and finally arrive at my place."
@@ -711,7 +713,7 @@ label start:
         hide ravenhappy
         jump startScene
 
-    label StartScene:
+    label startScene:
 
         "The movie ends"
         show ravendefault at center:
@@ -767,9 +769,6 @@ label start:
 
                 jump defenseAttempt
 
-            "I’m going to call the cops on you":
-
-                jump death 
 
     label defenseAttempt:
         hide ravenannoyed
@@ -783,9 +782,18 @@ label start:
         raven "Come on, you really didn’t think you could just run, right? "
         raven "At least, make me work a little harder for this. Seriously, it’s just good manners"
         "Just as Raven finished talking, she stabs your leg with a knife."
-        raven "kitchens in general are filled with so many instruments that just make my life so much easier for my prey, you know? "
-        raven "Oh well, it’s been nice meeting you, but I just wanted to have my fun with you a while longer. "
+        menu:
+            "WHY ARE YOU DOING THIS?":
+                jump defenseTwo
+
+    label defenseTwo:
         hide ravenannoyed
+        show ravenhappy at center:
+            zoom 0.5
+        raven "Why? Because it's fun! Obviously!"
+        raven "Did you know that kitchens in general are filled with so many instruments that just make my life so much easier to torture my victim?"
+        raven "Oh well, it’s been nice meeting you, but I just wanted to have my fun with you a while longer. "
+        hide ravenhappy
         show ravenblush at center:
             zoom 0.5
         raven "Anywhooo, nice try, sweetie!"
@@ -842,13 +850,15 @@ label start:
         return
 
     label ravenHouse:
+        hide carnival
         hide ravenblush
         "We arrive at Raven's house."
 
         "As I step into the darkened room, I begin to get uneasy about the isolated location. 
         It almost seemed as if it was in the middle of nowhere. But then again, rent must be cheap."
         "When I look around and notice that Raven has multiple sharp objects around her house."
-
+        show ravensurprised at center:
+            zoom 0.5
         raven "Oh, my bad. It's kind of dark huh? let me turn on a light"
         menu: 
 
@@ -861,6 +871,7 @@ label start:
                 jump evasive_response
 
     label nice_response:
+        hide ravensurprised
 
         "Raven talks to you in the distance as she goes to the kitchen"
 
@@ -871,10 +882,10 @@ label start:
         jump continueTalk
 
     label evasive_response:
+        
         "Raven talks to you in the distance as she goes to the kitchen"
-
+        hide ravensurprised
         raven "Are you feeling okay there? You seem kind of pale, why don’t you sit down for a minute?"
-
         "Something about this place seems off for some reason, but I just can\'t what it is"
 
         jump continueTalk
@@ -897,9 +908,10 @@ label start:
             jump twist_build_up
 
     label twist_build_up:
-
+        hide ravendefault
         "Even before you had a chance to respond, Raven pops a movie into the TV"
-
+        show ravenhappy at center:
+            zoom 0.5
         raven "Do you want some wine?"
 
         menu:
@@ -913,6 +925,7 @@ label start:
                 jump closeToEnding
 
     label gotWine:
+
         hide ravendefault
         "Raven leaves to get the wine. After a while she comes back. "
         show ravendefault at center:
@@ -980,6 +993,7 @@ label start:
 
     label playCool:
 
+
         raven "I know, right? So funny. Although, the worker was kinda heavy. Last time I saw the body, my brother told me that he was going to take care of it."
 
         "I decided to ignore Raven’s comment and just play it cool."
@@ -988,23 +1002,46 @@ label start:
 
     
     label confrontHer:
-        
+        hide ravenhappy
+        show ravenangry at center:
+            zoom 0.5    
         raven "Um, what’s wrong with you?"
 
         you "Someone got stabbed by none other than your brother, and your reaction is to laugh about it? When did this happen?"
+        hide ravenangry
         show ravenhappy at center:
             zoom 0.5
         raven "Two days ago. My brother asked me to help him get rid of him later too. He just told me to help him carry it to his car and after that I don’t know what happened."
 
         jump killerUnmasked
 
-
+    label killerUnmasked:
+        hide ravenhappy
+        show ravensurprised at center:
+            zoom 0.5
+        raven "What? Don't tell me you're afraid of me just because of something like that!"
+        raven "We were having a nice time, don't you think?"
+        menu:
+            "Okay, but I don't feel safe being in the same room with a murderer":
+                hide ravensurprised
+                show ravenannoyed at center:
+                    zoom 0.5
+                raven "Ugh, fine. Let's just finish the damn movie and leave if you want to"
+                hide ravenannoyed
+                jump closeToEnding
+            "Yeah, you're right let's just finish the movie":
+                hide ravensurprised
+                show ravenhappy at center:
+                    zoom 0.5
+                raven "Yay!"
+                jump closeToEnding
     label closeToEnding:
-
+        hide ravenhappy
         "We continued watching the movie with Raven in silence."
 
         "Raven starts falling asleep while watching the movie, so you decide to start preparing to leave."
-
+        show ravendefault at center:
+            zoom 0.5
         raven "Hey, I had a really nice time today. Do you mind doing me a favor before you go though?"
 
         menu:
@@ -1020,13 +1057,13 @@ label start:
     label trap:
 
         raven "Do you mind grabbing for me a couple of pills that I have in the kitchen? I have a bad headache right now. I think I drank too much."
-
+        hide ravendefault
         "You go into the kitchen, leaving Raven behind. You see the pills above a shelf and reach for them until you suddenly lose consciousness."
 
         jump SerialKiller
 
     label PlayerEscapes:
-
+        hide ravendefault
         "The night continues, yet you decided to go home for the night."
         "Raven and you say to each other your goodbyes, and you start the trek back home."
 
@@ -1035,6 +1072,8 @@ label start:
 
     label SerialKiller:
 
+        show ravenannoyed at center:
+            zoom 0.5
         raven "Well, can you wake up?! I swear, I even tried to just knock you down with the wine, but damn you sure took a couple of blows before you lost consciousness."
 
         "You wake up to a yelling Raven in front of you."
@@ -1049,6 +1088,10 @@ label start:
 
     label capturedAnswerOne:
 
+        hide ravenannoyed
+        show ravenangry at center:
+            zoom 0.5
+
         raven "WhAt iS gOiNG on… if you focus for once, you’d notice that you’re trapped. DUH."
 
         raven "I guess picking up on clues and realizing your current situation are two things you really suck at."
@@ -1056,6 +1099,8 @@ label start:
         raven "or what? Did you really feel that I was interested in you? Have you watched the news recently?"
 
         raven "Oh, wild serial killer going on a rampage. I swear, those idiots are exaggerating. I only killed two people, and one wasn’t even me. It was my brother, I just happened to be there at the wrong time."
+
+        jump backOnTrack
 
 
     label capturedAnswerTwo:
@@ -1076,11 +1121,15 @@ label start:
                 jump setUpKill
 
     label setUpKill:
-
+        hide ravenangry
+        show ravenhappy at center:
+            zoom 0.5
         raven "Why? Well, If I’m being honest, when my brother killed that coworker, I felt a surge of adrenaline in my body. "
 
         raven "You see, killing is depicted as such a bad act and you shouldn’t do it, but… heh"
-
+        hide ravenhappy
+        show ravenblush at center:
+            zoom 0.5
         raven "When I killed my first victim, I’m telling you, I never felt more alive. "
 
         raven "His screams were music to my ears, his grunts as he was falling to the floor were so damn satisfying, I just knew I had to keep going."
@@ -1088,9 +1137,9 @@ label start:
         raven "So I went into this dating app where I just knew it’d be easy to lure people into my house."
 
         raven "I just had to pretend to be interested in whatever crap they’re saying and hey, sometimes I can get away with a free meal or two. "
-
+        
         raven "But I digress, anyway, enjoy being on the news tomorrow. Be sure to make a pretty face for them when they find you… assuming they do, of course"
-
+        hide ravenblush
         "As soon as Raven finishes talking she grabs a knife and starts stabbing you."
 
         "All you can really hear is her laugh as she continues to pull that knife in and out of your body."
@@ -1099,7 +1148,7 @@ label start:
 
 
     label newsFlash:
-
+        
         "A month later"
 
         "The killer’s whereabouts are still unknown to this day. A body was recently found at a carnival that was taking place in town weeks ago. "
@@ -1109,6 +1158,7 @@ label start:
         "Be safe out there, folks. The killer is still out there, and we don’t know where, how, or when we are going to catch whoever it is."
 
         "The End."
+    return
 
     #Ending 3, Raven’s House: Player escapes.
 
