@@ -112,7 +112,8 @@ label start:
                 hide ravenhappy
 
         "We head inside the restaurant and get seated."
-
+        play sound "restaurantmusic.mp3"
+        
         show waiter at center:
             zoom 0.5
         "I sit down with Raven at the table and start to look at the menu."
