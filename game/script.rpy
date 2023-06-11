@@ -836,11 +836,301 @@ label start:
     "Oh well, I guess it doesn't matter. I got class tomorrow, so I should just hit the sack."
 
     "The End."
-    
+    return
+
+
+    #INSERT POSSIBLE REACTIONS FROM HERE DOWN
 
     label ravenHouse:
-        "This is raven house"
-        return
+
+        "We arrive at Raven's house."
+
+        "As I step into the darkened room, I begin to get uneasy about the isolated location. 
+        It almost seemed as if it was in the middle of nowhere. But then again, rent must be cheap."
+        "When I look around and notice that Raven has multiple sharp objects around her house."
+
+        menu: 
+
+            "Wow, this is a pretty nice place! Thanks for having me over":
+
+                jump nice_response
+
+            "Oh, um… thanks for inviting me here, I won’t be long though.":
+
+                jump evasive_response
+
+    label nice_response:
+
+        "Raven talks to you in the distance as she goes to the kitchen"
+
+        raven "Why, thanks! Although it gets kind of lonely with just me around here… It feels better with you being here with me"
+
+        raven "seems pretty cool, although we may have had some weird moments during the date, I’d say it went pretty great"
+
+        jump continueTalk
+
+    label evasive_response:
+	
+        "Raven talks to you in the distance as she goes to the kitchen"
+
+        raven "Are you feeling okay there? You seem kind of pale, why don’t you sit down for a minute?"
+
+        "Something about this place seems off for some reason, but you’re not capable of discerning why"
+
+        jump continueTalk
+
+    label continueTalk:
+
+    raven "Say, it’s still early, do you want to watch a movie with me?"
+
+    "Raven proposes an idea that could lead this night into something else"
+    
+    menu:
+
+        "Um… actually I…":
+		
+            jump twist_build_up
+
+        "Well, y…":
+
+            jump twist_build_up
+
+    label twist_build_up:
+
+        "Even before you had a chance to respond, Raven pops a movie into the TV"
+
+        raven "Do you want some wine?"
+
+        menu:
+
+            "Yeah, that sounds great. ":
+
+                jump gotWine
+
+            "Thanks, but I’m good right now. We ate a lot at the restaurant.":
+
+                jump closeToEnding
+
+    label gotWine:
+
+        "Raven leaves to get the wine. After a while she comes back. "
+
+        raven "Here you go, I hope you like it! I got it from my brother’s workplace."
+
+        "You take a sip at the wine and the wine has an odd taste"
+
+        "Should I say something about it?"
+
+    menu: 
+
+        "Oh, man. This wine is pretty great, where did you get it?":
+
+            jump good_wine
+
+        "Damn, this is kinda strong":
+
+            jump bad_wine
+
+
+    label good_wine:
+
+        raven "There’s this store downtown where my brother works, they have some good equipment there. I even go and help him out at times."
+
+        raven "He’s the owner and one of his favorite things to do during the process is the whole sabering the bottles and stuff"
+
+        raven "You know what that is right? It’s when they have the bottle filled up with the wine and they use a blade to pop it open. I’ve even had to do it a couple of times. It’s fun"
+
+        menu:
+
+        "They actually do that? What the hell?"
+
+            jump knowMoreBlade
+
+        "Oh, wow, I’d love to try that myself sometime"
+
+            jump ContinueBadEnding
+
+
+    label bad_wine:
+
+        raven "Oh really? That’s a shame."
+
+        jump continueBadEnding
+
+    label KnowMoreBlade:
+        show ravenhappy at center:
+            zoom 0.5
+        raven "Yeah, sometimes they go wild though. Once, my brother used a katana to open a bottle, he completely missed and hit one of his coworkers."
+
+        menu: 
+
+        "Oh man, your brother does some crazy things!"
+
+            jump playCool
+
+        "Uh, he stabbed someone with a katana? That’s funny to you?"
+            jump confrontHer
+
+
+    label playCool:
+
+        raven "I know, right? So funny. Although, he was kinda heavy. Last time I saw the body, my brother told me that he was going to take care of it."
+
+        "You decided to ignore Raven’s comment and just play it cool."
+
+            jump closeToEnding
+
+    
+    label confrontHer:
+
+        raven "Um, what’s wrong with you?"
+
+        you "Someone got stabbed by none other than your brother, and your reaction is to laugh about it? When did this happen?"
+        show ravenhappy at center:
+            zoom 0.5
+        raven "Two days ago. My brother asked me to help him get rid of him later too. He just told me to help him carry it to his car and after that I don’t know what happened."
+
+            jump killerUnmasked
+
+
+    label closeToEnding:
+
+        "We continued watching the movie with Raven in silence."
+
+        "Raven starts falling asleep while watching the movie, so you decide to start preparing to leave."
+
+        raven "Hey, I had a really nice time today. Do you mind doing me a favor before you go though?"
+
+        menu:
+
+            " A favor? Sure, what’s up?":
+
+                jump trap
+
+            "Sorry, but It’s getting kinda late, so I want to get home soon but I’ll call you.":
+
+                jump PlayerEscapes
+
+    label trap:
+
+        raven "Do you mind grabbing for me a couple of pills that I have in the kitchen? I have a bad headache right now. I think I drank too much."
+
+        "You go into the kitchen, leaving Raven behind. You see the pills above a shelf and reach for them until you suddenly lose consciousness."
+
+        jump SerialKiller
+
+    label PlayerEscapes:
+
+        "The night continues, yet you decided to go home for the night."
+        "Raven and you say to each other your goodbyes, and you start the trek back home."
+
+    Jump BackHome
+
+    Label: SerialKiller
+
+    Raven: Well, can you wake up?! I swear, I even tried to just knock you down with the wine, but damn you sure took a couple of blows before you lost consciousness. 
+
+    You wake up to a yelling Raven in front of you.
+
+    Menu: 
+
+    Player: What is going on here?
+
+        Jump capturedAnswerOne
+
+    Player: What happened?
+
+        Jump capturedAnswerTwo
+
+    Label: capturedAnswerOne
+
+    Raven: WhAt iS gOiNG on… if you focus for once, you’d notice that you’re trapped. DUH.
+
+    Raven: I guess picking up on clues and realizing your current situation are two things you really suck at.
+
+    Raven: or what? Did you really feel that I was interested in you? Have you watched the news recently?  
+
+    Raven: Oh, wild serial killer going on a rampage. I swear, those idiots are exaggerating. I only killed two people, and one wasn’t even me. It was my brother, I just happened to be there at the wrong time.
+
+
+    Label: capturedAnswerTwo
+
+    Raven wHaT HapPenNed? Ugh, I can’t deal with you anymore. I kidnapped you. I thought that would be obvious with the ropes on your extremities and the basement? 
+
+    Raven: If you didn’t notice, the “weird taste” in the wine were some drugs I put in there to knock you out. 
+
+    Jump backOnTrack
+
+
+    Label: backOnTrack
+
+    Raven just keeps complaining about her situation 
+
+    Menu:
+
+    Why are you doing this?
+
+    Jump setUpKill
+
+    Label setUpKill
+
+    Raven Why? Well, If I’m being honest, when my brother killed that coworker, I felt a surge of adrenaline in my body. 
+
+    Raven You see, killing is depicted as such a bad act and you shouldn’t do it, but… heh
+
+    Raven When I killed my first victim, I’m telling you, I never felt more alive. 
+
+    Raven His screams were music to my ears, his grunts as he was falling to the floor were so damn satisfying, I just knew I had to keep going.
+
+    Raven So I went into this dating app where I just knew it’d be easy to lure people into my house.
+
+    Raven I just had to pretend to be interested in whatever crap they’re saying and hey, sometimes I can get away with a free meal or two. 
+
+    Raven: But I digress, anyway, enjoy being on the news tomorrow. Be sure to make a pretty face for them when they find you… assuming they do, of course
+
+    As soon as Raven finishes talking she grabs a knife and starts stabbing you.
+
+    All you can really hear is her laugh as she continues to pull that knife in and out of your body.
+
+    Jump newsFlash
+
+
+    Label newsFlash
+
+    A month later
+
+    The killer’s whereabouts are still unknown to this day. A body was recently found at a carnival that was taking place in town weeks ago. 
+
+    Several injuries were found in the body from what appear to be knife stabs. The killer is suspected to be the same one related to a worker in a wine store.
+
+    Be safe out there, folks. The killer is still out there, and we don’t know where, how, or when we are going to catch whoever it is.
+
+    The End.
+
+    Ending 3, Raven’s House: Player escapes.
+
+    Label: BackHome
+
+    You arrive back home. 
+
+    It for sure was a long day
+
+    You get ready to go to bed, and as soon as your head hits the pillow, you doze off.
+
+    The next morning, you start your day just as any other. You get ready to go to your classes, so while making breakfast, you pick up your phone and hop into social media.
+
+    As you scroll down, you stumble upon a headline that says “Disturbing news in regards to the case about the two serial killers that are running rampant even today.”
+
+    You continue to read
+
+    “A new body was found in the killer’s car. After the killer was interrogated, he revealed that his sister helped him with the murder.”
+
+    “The whereabouts of his accomplice are unknown, although some witnesses claim that she was seen eating at a restaurant with someone else, and later that night, another witness claims that she was seen walking around the carnival downtown.”
+
+    “If you see a person with this description” * Show picture of Raven * “Beware, as she is a serial killer on the run”   
+
+    The End.
+
     # This ends the game.
 
     return
