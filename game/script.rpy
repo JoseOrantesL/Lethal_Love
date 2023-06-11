@@ -623,6 +623,9 @@ label start:
                 return
             "It’s all good, having you here feels nice too.":
                 you "It’s all good, having you here feels nice too."
+                hide ravendefault
+                show ravenblush at center:
+                    zoom 0.5
                 jump flirt
                 return
     
@@ -630,29 +633,28 @@ label start:
         raven "Oh, it’s such a shame that I’m here for just a little while."
         menu: 
             "I wish you’d stay here longer.":
+                you "I wish you’d stay here longer."
                 jump Flirt2
                 return
             "So what do you want to do?":
+                you "So what do you want to do?"
                 jump StopFlirt
                 return
 
     label Flirt2:
-
         raven "I can stay for as long as you want me to. I live alone, and I feel lonely at times, but today feels really different for some reason."
-
         "Raven smiles at you"
-
-        "I continue to flirt with Raven."
+        "I continued to flirt with Raven."
 
         jump stopFlirt
         return
 
     label stopFlirt:
-
+        hide ravenblush
+        show ravendefault at center:
+            zoom 0.5
         raven "What do YOU want to do? Do you want to watch a movie or something?"
-
         raven "Can you play a horror movie? I love those so much!"
-
         "You comply and play a horror movie."
 
         jump movieStarts
@@ -660,7 +662,9 @@ label start:
 
 
     label movieStarts:
-
+        hide ravendefault
+        show ravenhappy at center:
+            zoom 0.5
         "The movie has been playing for a while and Raven seems unusually excited."
 
         menu:
@@ -676,11 +680,8 @@ label start:
     label questioning:
 
         raven "I just like the serial killers topic, you know?"
-
         raven "I don’t know how to explain it, but they could be anywhere!"
-
         raven "Have you ever thought that while you’re walking across a group of people, you might’ve crossed more than one serial killer?"
-
         raven "It’s the mystery that I enjoy the most."
 
         menu:
@@ -695,29 +696,28 @@ label start:
                 jump agreeSK
 
     label annoySK:
-
+        hide ravenhappy
+        show ravenannoyed at center:
+            zoom 0.5
         raven "Bro, you really need to chill. Can’t you just let me enjoy what I like?"
-
         raven "Seriously, it’s really annoying that people just criticize what I enjoy for no reason"
-
+        hide ravenannoyed
         jump startScene
 
     label agreeSK:
-
+        
         raven "Right?!?!?! Finally, someone who gets it. You don’t need to be a serial killer to enjoy learning what they did."
-
         raven "People just instantly assume that just because you enjoy the whole serial killer topic, you’re very likely to be one, but that’s just them being stupid."
-
+        hide ravenhappy
         jump startScene
 
     label StartScene:
 
         "The movie ends"
-
-        raven "Damn that was fun, I was so impressed when they showed his body count in such a short amount of time"
-
+        show ravendefault at center:
+            zoom 0.5
+        raven "Damn, that was fun, I was so impressed when they showed his body count in such a short amount of time"
         raven "50 people in just 4 days, can you imagine? That’s a record if I’ve seen one. I’m only at two, and that’s still a lot."
-
         menu:
 
             "What do you mean by “two”?":
@@ -728,7 +728,9 @@ label start:
                 jump avoidDeath
 
     label playerKilled:
-
+        hide ravendefault
+        show ravensurprised at center:
+            zoom 0.5 
         raven "What? Did I say something wrong?"
         raven "Oh? You mean the two? Oh yeah, the first one was accidental, but the second one was really fun."
 
@@ -738,18 +740,26 @@ label start:
                 jump playerKilled2 
 
     label playerKilled2:
+        
+        hide ravensurprised
+        show ravenblush at center:
+            zoom 0.5
 
         raven "Yeah, It’s so fun. The sheer despair that those fools showed as they were grunting in pain was like music to my ears."
-
+        hide ravenblush
+        show ravendefault at center:
+            zoom 0.5
         raven "Remember my brother? He owns a wine shop. He likes to make his own wine, but long story short, while he was opening a bottle with a katana."
-
         raven "The katana is a weird story, but that’s not important right now. Surprise!"
 
         jump finishKill 
 
     label finishKill:
 
-        raven "So, how do you want to die? Stabbing? Asphyxiation? Overdose? Although that one is the most painless, so it’s way less fun"
+        hide ravendefault
+        show ravenannoyed at center:
+            zoom 0.5 
+        raven "So, how do you want to die? Stabbing? Asphyxiation? Overdose? Although that one is the most painless, so it\'s way less fun"
 
         menu: 
 
@@ -762,25 +772,25 @@ label start:
                 jump death 
 
     label defenseAttempt:
-
+        hide ravenannoyed
+        show ravenhappy at center:
+            zoom 0.5
         raven "Oh please, by all means, do try. It makes it more thrilling when they fight back"
-
         "You run to the kitchen to grab any type of weapon to defend yourself against the killer who’s revealed her true identity to you, until…"
-
+        hide ravenhappy
+        show ravenannoyed at center:
+            zoom 0.5
         raven "Come on, you really didn’t think you could just run, right? "
-
         raven "At least, make me work a little harder for this. Seriously, it’s just good manners"
-
         "Just as Raven finished talking, she stabs your leg with a knife."
-
         raven "kitchens in general are filled with so many instruments that just make my life so much easier for my prey, you know? "
-
         raven "Oh well, it’s been nice meeting you, but I just wanted to have my fun with you a while longer. "
-
+        hide ravenannoyed
+        show ravenblush at center:
+            zoom 0.5
         raven "Anywhooo, nice try, sweetie!"
-
         "The rest of her speech is disrupted in your ears as the only thing you can hear are your own screams as she just continuously stabs you in the chest."
-
+        hide ravenblush
         jump ending2
 
     label ending2:
@@ -798,13 +808,13 @@ label start:
         "Stay safe out there, and if you ever believe you could be in danger, don’t hesitate to call out for help."
 
         "The end."
-
+        return
 
 
     label avoidDeath:
 
         raven "Hey, I had a really nice time today. It’s been really fun hanging out with you"
-
+        
         menu: 
 
             "Yeah, me too. I’ll call you again sometime.":
@@ -818,29 +828,28 @@ label start:
 
 
     label byeKiller:
+        
+        hide ravendefault
+        "Raven packs her stuff, and prepares to leave."
 
-    "Raven packs her stuff, and prepares to leave."
+        "As she leaves the house, you reminisce on today’s events and decide to call it a night."
 
-    "As she leaves the house, you reminisce on today’s events and decide to call it a night."
+        "What did Raven mean by 'I\'m only at two'?" 
 
-    "What did Raven mean by 'I\'m only at two'?" 
+        "Oh well, I guess it doesn't matter. I got class tomorrow, so I should just hit the sack."
 
-    "Oh well, I guess it doesn't matter. I got class tomorrow, so I should just hit the sack."
-
-    "The End."
-    return
-
-
-    #INSERT POSSIBLE REACTIONS FROM HERE DOWN
+        "The End."
+        return
 
     label ravenHouse:
-
+        hide ravenblush
         "We arrive at Raven's house."
 
         "As I step into the darkened room, I begin to get uneasy about the isolated location. 
         It almost seemed as if it was in the middle of nowhere. But then again, rent must be cheap."
         "When I look around and notice that Raven has multiple sharp objects around her house."
 
+        raven "Oh, my bad. It's kind of dark huh? let me turn on a light"
         menu: 
 
             "Wow, this is a pretty nice place! Thanks for having me over":
@@ -857,7 +866,7 @@ label start:
 
         raven "Why, thanks! Although it gets kind of lonely with just me around here… It feels better with you being here with me"
 
-        raven "seems pretty cool, although we may have had some weird moments during the date, I’d say it went pretty great"
+        "Raven seems pretty cool, although we may have had some weird moments during the date, I’d say it went pretty great"
 
         jump continueTalk
 
@@ -866,12 +875,14 @@ label start:
 
         raven "Are you feeling okay there? You seem kind of pale, why don’t you sit down for a minute?"
 
-        "Something about this place seems off for some reason, but you’re not capable of discerning why"
+        "Something about this place seems off for some reason, but I just can\'t what it is"
 
         jump continueTalk
 
     label continueTalk:
-
+        "Raven returns from the kitchen with wine and some popcorn."
+        show ravendefault at center:
+            zoom 0.5
         raven "Say, it’s still early, do you want to watch a movie with me?"
 
         "Raven proposes an idea that could lead this night into something else"
@@ -902,13 +913,12 @@ label start:
                 jump closeToEnding
 
     label gotWine:
-
+        hide ravendefault
         "Raven leaves to get the wine. After a while she comes back. "
-
+        show ravendefault at center:
+            zoom 0.5
         raven "Here you go, I hope you like it! I got it from my brother’s workplace."
-
         "You take a sip at the wine and the wine has an odd taste"
-
         "Should I say something about it?"
 
     menu: 
@@ -924,12 +934,16 @@ label start:
 
     label good_wine:
 
+        hide ravendefault
+        show ravenhappy at center:
+            zoom 0.5
         raven "There’s this store downtown where my brother works, they have some good equipment there. I even go and help him out at times."
 
         raven "He’s the owner and one of his favorite things to do during the process is the whole sabering the bottles and stuff"
-
+        hide ravenhappy
+        show ravensurprised at center:
+            zoom 0.5
         raven "You know what that is right? It’s when they have the bottle filled up with the wine and they use a blade to pop it open. I’ve even had to do it a couple of times. It’s fun"
-
         menu:
 
             "They actually do that? What the hell?":
@@ -940,14 +954,16 @@ label start:
 
                 jump ContinueBadEnding
 
-
     label bad_wine:
-
+        hide ravensurprised
+        show ravensad at center:
+            zoom 0.5
         raven "Oh really? That’s a shame."
-
+        hide ravensad
         jump continueBadEnding
 
-    label KnowMoreBlade:
+    label knowMoreBlade:
+        hide ravensurprised
         show ravenhappy at center:
             zoom 0.5
         raven "Yeah, sometimes they go wild though. Once, my brother used a katana to open a bottle, he completely missed and hit one of his coworkers."
@@ -964,15 +980,15 @@ label start:
 
     label playCool:
 
-        raven "I know, right? So funny. Although, he was kinda heavy. Last time I saw the body, my brother told me that he was going to take care of it."
+        raven "I know, right? So funny. Although, the worker was kinda heavy. Last time I saw the body, my brother told me that he was going to take care of it."
 
-        "You decided to ignore Raven’s comment and just play it cool."
+        "I decided to ignore Raven’s comment and just play it cool."
 
         jump closeToEnding
 
     
     label confrontHer:
-
+        
         raven "Um, what’s wrong with you?"
 
         you "Someone got stabbed by none other than your brother, and your reaction is to laugh about it? When did this happen?"
