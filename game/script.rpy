@@ -25,22 +25,22 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
     "I pull myself out of bed to the sound of my alarm and my phone buzzing."
-    "I see a text on my phone from a girl, Raven, who I met through a dating app online"
+    "I see a text on my phone from a girl, Raven, who I met through a dating app online."
     raven "I can't wait to see you today _______!"
     python:
         name = renpy.input("Enter Your Name:")
 
         name = name.strip() or "You"
-    "I arranged a date with her at a nice restaurant"
+    "I arranged a date with her at a nice restaurant."
     "I should probably get ready and find something appropriate to wear..."
     menu:
         "Formal Suit":
-            "This looks nice, but might be a bit too fancy for a first meeting"
+            "This looks nice, but might be a bit too fancy for a first meeting."
             $suit = True
             menu:
                 "Semi-Formal Suit" if suit == True:
                     "This is perfect fit for the date!"
-                    "I should get going to the restaurant"
+                    "I should get going to the restaurant."
                     scene restaurant
                     jump restaurantDate
                 "Bright Graphic t-shirt":
@@ -48,76 +48,74 @@ label start:
                     menu:
                         "Semi-Formal Suit" if suit == True:
                             "This is perfect fit for the date!"
-                            "I should get going to the restaurant"
+                            "I should get going to the restaurant."
                             scene restaurant
                             jump restaurantDate
         "Bright Graphic t-shirt":
             "No way I'm wearing this to the first date, though it could be a conversation starter.."
             menu:
                 "Formal Suit":
-                    "This looks nice, but might be a bit too fancy for a first meeting"
+                    "This looks nice, but might be a bit too fancy for a first meeting."
                     $suit = True
                     menu:
                         "Semi-Formal Suit":
                             "This is a perfect fit for the date!"
-                            "I should get going to the restaurant"
+                            "I should get going to the restaurant."
                             scene restaurant
                             jump restaurantDate
                 "Semi-Formal Suit" if suit == True:
                     "This is perfect fit for the date!"
-                    "I should get going to the restaurant"
+                    "I should get going to the restaurant."
                     scene restaurant
                     jump restaurantDate
 
     label restaurantDate:
-        "This is the restaurant scene start"
-
-        "I arrive at the restaurant a bit early and wait a bit until I see someone who ressembles the person in Raven's profile picture"
-        "Suddenly I hear a voice -"
+        "I arrive at the restaurant a bit early and wait a bit until I see someone who ressembles the person in Raven's profile picture."
+        "Suddenly, I hear a voice -"
         raven "[you]!"
-        "I turn around and see the person that I've been longing to talk to"
+        "I turn around and see the person that I've been longing to talk to."
         show ravendefault at center:
             zoom 0.5
         raven "Have you been waiting long?"
 
         menu:
             "Not at all!":
-                you "Not really, I just got here"
+                you "Not really, I just got here."
                 hide ravendefault
                 show ravenhappy at center:
                     zoom 0.5
                 raven "Great! Shall we get going?"
                 hide ravenhappy
-            "I've been waiting forever":
-                you "Yeah I've been waiting for hours"
+            "I've been waiting forever.":
+                you "Yeah I've been waiting for hours."
                 hide ravendefault 
                 show ravensurprised at center:
                     zoom 0.5
-                raven "Oh really?! Sorry I didn't realize you were coming so soon or I would've left earlier"
-                you "No that was a joke haha... I barely got here too"
+                raven "Oh really?! Sorry, I didn't realize you were coming so soon or I would've left earlier."
+                you "No, that was a joke haha... I barely got here too."
                 hide ravensurprised
                 show ravenhappy at center:
                     zoom 0.5
-                raven "Oh sorry I haven't adjusted to your sarcasm yet haha... Lets get going! I'm hungry"
+                raven "Oh, sorry I haven't adjusted to your sarcasm yet haha... Let's get going! I'm hungry."
                 hide ravenhappy
-            "I would wait forever for you":
-                you "I'd wait forever for you"
+            "I would wait forever for you.":
+                you "I'd wait forever for you."
                 hide ravendefault
                 show ravenblush at center:
                     zoom 0.5
-                raven "Oh stop it"
-                raven "I know you just got here too"
+                raven "Oh, stop it!"
+                raven "I know you just got here too."
                 hide ravenblush 
                 show ravenhappy at center:
                     zoom 0.5
-                raven "Cmon! Lets go in, I'm starving"
+                raven "C'mon! Let's go in. I'm starving."
                 hide ravenhappy
 
-        "We go inside the restaurant and get seated"
+        "We head inside the restaurant and get seated."
 
         show waiter at center:
             zoom 0.5
-        "You sit down with raven at the table and start to look at the menu"
+        "I sit down with Raven at the table and start to look at the menu."
         waiter "Hi guys, welcome in."
         waiter "Can I get you started on any appetizers?"
 
@@ -127,50 +125,50 @@ label start:
                 hide waiter
                 show ravensurprised at center:
                     zoom 0.5
-                raven "Wow what a healthy choice"
+                raven "Wow, what a healthy choice."
                 hide ravensurprised
             "French Fries":
                 $appetizer = "Fries"
                 hide waiter
                 show ravenhappy at center:
                     zoom 0.5
-                raven "Fries... what a classic"
-                raven "Maybe I'll pick a couple off of yours later"
+                raven "Fries... what a classic."
+                raven "Maybe I'll pick a couple off of yours later."
                 hide ravenhappy
-            "I don't want to order an appetizer":
+            "I think I'm good.":
                 hide waiter
                 show ravensurprised at center:
                     zoom 0.5
-                raven "Not an appetizer person huh."
+                raven "Not an appetizer person, huh?"
                 hide ravensurprised
         show waiter at center:
             zoom 0.5
-        waiter "Alright I'll go get that started for you guys"
-        you "Thanks"
+        waiter "Alright, I'll go get that started for you guys."
+        you "Thanks."
         hide waiter
 
         show ravendefault at center:
             zoom 0.5
         you "So what did you order?"
-        raven "I ordered a Steak Tartare with some wine"
+        raven "I ordered a Steak Tartare with some wine."
         you "Isn't that like raw steak?"
         hide ravendefault
         show ravenannoyed at center:
             zoom 0.5
-        raven "Yeah is something wrong with that?"
+        raven "Yeah, is something wrong with that?"
         you "No not at all!..."
         hide ravenannoyed
         show ravenhappy at center:
             zoom 0.5
-        raven "Great, you should try it sometime its not that bad, but kinda pricey"
+        raven "Great, you should try it sometime! It's not that bad, but kinda pricy."
         hide ravenhappy
         show waiter at center:
             zoom 0.5
-        waiter "So I have here a Steak tartare and a glass of wine"
+        waiter "So, I have here a Steak tartare and a glass of wine."
         if(appetizer != ""):
             waiter "I also have an order of [appetizer]"
         
-        you "Thank you"
+        you "Thank you."
 
         hide waiter
         show ravendefault at center:
@@ -186,8 +184,8 @@ label start:
                 hide ravendefault
                 show ravenannoyed at center:
                     zoom 0.5
-                raven "Yeah you got a problem with that?"
-                raven "I'll drink whenever I want to"
+                raven "Yeah. You got a problem with that?"
+                raven "I'll drink whenever I want to."
                 hide ravenannoyed
         show ravensurprised at center:
             zoom 0.5
@@ -200,42 +198,42 @@ label start:
         hide ravenangry
         show waiter at center:
             zoom 0.5
-        waiter "Yes is there a problem?"
+        waiter "Yes, is there a problem?"
         hide waiter
         show ravenangry at center:
             zoom 0.5
-        raven "Yeah can I have wine that I ordered, this is champagne"
+        raven "Yeah. Can I have wine that I ordered? This is champagne."
         hide ravenangry
         show waiter at center:
             zoom 0.5
-        waiter "Sorry about that, I'll go get your drink right now"
+        waiter "Sorry about that. I'll go get your drink right now."
         hide waiter
         show ravenannoyed at center:
             zoom 0.5
-        raven "Ugh, thats annoying."
-        you "You really want that wine huh"
+        raven "Ugh, that's annoying."
+        you "You really want that wine, huh."
         hide ravenannoyed
         show ravensurprised at center:
             zoom 0.5
-        raven "Sorry that was a bit out of pocket"
+        raven "Sorry, that was a bit out of pocket."
         hide ravensurprised
         show ravenannoyed at center:
             zoom 0.5
-        raven "Yeah I was looking forwards to it, since I only ever drink wine from my brothers' place"
+        raven "Yeah, I was looking forward to it, since I only ever drink wine from my brothers' place."
         menu:
             "Brother?":
                 hide ravenannoyed
                 show ravensurprised at center:
                     zoom 0.5
-                raven "Yeah I have an older brother who works at a vineyard"
-                raven "He's kinda wild though, like he does some crazy shit with his coworkers sometimes"
+                raven "Yeah, I have an older brother who works at a vineyard."
+                raven "He's kinda wild though, like he does some crazy shit with his coworkers sometimes."
                 hide ravensurprised
-            "Tell me more about your brother":
+            "Tell me more about your brother.":
                 hide ravenannoyed
                 show ravenhappy at center:
                     zoom 0.5
-                raven "Yeah, so my brother is older than me by a couple years and he works at a vineyard"
-                raven "He comes back every once in a while to ask me do some some favors for him but thats about it, I don't see him often"
+                raven "Yeah, so my brother is older than me by a couple years and he works at a vineyard."
+                raven "He comes back every once in a while to ask me do some some favors for him but thats about it. I don't see him often."
                 hide ravenhappy
         show waiter at center:
             zoom 0.5
@@ -243,37 +241,37 @@ label start:
         hide waiter
         show ravendefault at center:
             zoom 0.5
-        raven "I'll have a steak"
+        raven "I'll have a steak."
         hide ravendefault
         show waiter at center:
             zoom 0.5
         waiter "And for you?"
         menu:
             "Steak":
-                waiter "excellent choice, I'll be back with that shortly"
+                waiter "Excellent choice, I'll be back with that shortly."
                 hide waiter
-            "Whatever you suggest":
-                waiter "I'd suggest the Lobster risotto special that we have"
-                you "I'll have that then"
-                waiter "Great, I'll be back with those soon"
+            "Whatever you suggest.":
+                waiter "I'd suggest the Lobster Risotto special that we have."
+                you "I'll have that then."
+                waiter "Great, I'll be back with those soon."
                 hide waiter
-            "I'm Ok":
-                waiter "Thats ok. Let me know if you need anything else"
+            "I'm okay.":
+                waiter "That's alright. Let me know if you need anything else."
                 hide waiter
-        "Some time passes and the waiter brings us our dishes"
+        "Some time passes and the waiter brings us our dishes."
         show ravenhappy at center:
             zoom 0.5
-        raven "Wow this looks so good I can't wait to dig in!"
+        raven "Wow, this looks so good! I can't wait to dig in!"
 
-        "Raven starts skillfully spinning the steak knife in her hand in excitement"
+        "Raven starts skillfully spinning the steak knife in her hand in excitement."
 
         menu:
-            "Careful with that":
+            "Careful with that...":
                 hide ravenhappy
                 show ravenblush at center:
                     zoom 0.5
-                raven "Don't worry I've done this enough to be good at it"
-                raven "You aren't in danger unless you want to be"
+                raven "Don't worry, I've done this enough to be good at it."
+                raven "You aren't in danger unless you want to be."
                 hide ravenblush
                 show ravendefault at center:
                     zoom 0.5
@@ -286,13 +284,13 @@ label start:
                 hide ravenangry
                 show ravenhappy at center:
                     zoom 0.5
-                raven "just kidding! Why would I do that?"
+                raven "Just kidding! Why would I do that?"
                 hide ravenhappy
-            "Woah put that down":
+            "Woah, put that down.":
                 hide ravenhappy
                 show ravenannoyed at center:
                     zoom 0.5
-                raven "what you don't trust me enough to hold a knife?"
+                raven "What, you don't trust me enough to hold a knife?"
                 raven "You wouldn't be in danger unless you piss me off"
                 hide ravenannoyed
                 show ravendefault at center:
@@ -306,63 +304,58 @@ label start:
                 hide ravenangry
                 show ravenhappy at center:
                     zoom 0.5
-                raven "just kidding! Why would I do that?"
+                raven "Just kidding! Why would I do that?"
                 hide ravenhappy
-            "Damn thats cool":
+            "Damn, thats cool.":
                 hide ravenhappy
                 show ravenblush at center:
                     zoom 0.5
-                raven "Right?! I learned this from my brother a while back"
-                raven "Most people get scared off by this kinda stuff though"
-                raven "I haven't dropped or screwed up my knife spinning since like a couple of years ago I think"
+                raven "Right?! I learned this from my brother, a while back."
+                raven "Most people get scared off by this kinda stuff though."
+                raven "I haven't dropped or screwed up my knife spinning since like a couple of years ago, I think."
                 hide ravenblush
 
-        "A while passes and we both finish our food and clear out of the restaurant"
+        "We both finish our food and clear out of the restaurant."
 
         show ravensad at center:
             zoom 0.5
-        raven "Maaan I am stuffed, that steak was way too much food"
-        raven "We should probably walk off the food..."
-        raven "So I was thinking, theres that new carnival that opened up recently, we could head there if you want to"
+        raven "Maaan... I am stuffed, that was way too much food."
+        raven "We should probably walk it off..."
+        raven "So I was thinking, there's that new carnival that opened up recently. We could head there if you want to."
         menu:
-            "Sounds good":
+            "Sounds good!":
                 hide ravensad
                 show ravenhappy at center:
                     zoom 0.5
-                raven "great lets head over there"
+                raven "Great! Let's head over there."
                 hide ravenhappy
             "Carnival?":
                 hide ravensad
                 show ravensurprised at center:
                     zoom 0.5
-                raven "Yeah the new one? its apparently really cool and the first week is free entry"
-                you "Free Entry?! I'm in"
+                raven "Yeah, the new one? It's apparently really cool, and the first week is free entry."
+                you "Free Entry?! I'm in."
                 hide ravensurprised
                 show ravenhappy at center:
                     zoom 0.5
-                raven "great lets go then"
+                raven "Great! Let's go then."
                 hide ravenhappy
-        "This is the end of restaurant scene"
 
-
-    "You arrive at the carnival with Raven."
+    "I arrive at the carnival with Raven."
     scene carnival at center:
         zoom 7
         "carnival.png"
     play sound "carnival.mp3"
-
     show ravendefault at center:
         zoom 0.5
 
-    # These display lines of dialogue.
-
-    raven "Hey [you], glad you could make it, how was the ride here?"
+    raven "Yay! We're here. Happy places like these really cheer me up. It's a nice change of pace."
 
     menu:
-        "Hey Raven, it was alright! How about yours?":
+        "Same! It's so bright and colorful.":
             jump carnival_route
 
-        "Hi... uh, it was good.":
+        "Change of pace...?":
             jump suspicious_route
     
     label suspicious_route:
@@ -370,28 +363,27 @@ label start:
         hide ravendefault
         show ravensurprised at center:
             zoom 0.5
-        "An interesting first question to be asked. It seems normal at first but its just a bit of an odd choice..."
-        raven "Good. I'm glad."
+        raven "I don't know how to explain it."
         raven "Let's go to the Ferris wheel and enjoy the view."
 
         menu:
-            "I'm good, ferris wheels are kinda boring":
+            "I'm good, ferris wheels are kinda boring.":
                 hide ravensurprised
                 show ravenannoyed at center:
                     zoom 0.5
                 $sus_points += 1
                 raven "What?! I love ferris wheels, they give us such a nice view! I'm going regardless."
-                you "Ok fine I'll go with you"
+                you "Okay fine, I'll go with you."
                 hide ravenannoyed
                 show ravenblush at center:
                     zoom 0.5
-                raven "Great! lets go!"
+                raven "Great! Let's go!"
                 jump ferris_wheel
-            "Sure! lets go check it out!":
+            "Sure! Let's go check it out!":
                 hide ravensurprised
                 show ravenblush at center:
                     zoom 0.5
-                raven "Great! I love that we're on the same page"
+                raven "Great! I love that we're on the same page.s"
                 jump ferris_wheel
 
         
@@ -399,46 +391,46 @@ label start:
         hide ravenblush
         show ravenhappy at center:
             zoom 0.5
-        raven "Mine was great!"
-        raven "Hey let's go to the Ferris wheel! I want to see the view from the top."
+        raven "Hehe..."
+        raven "Hey, let's go to the Ferris wheel! I want to see the view from the top."
         hide ravenhappy
         show ravendefault at center:
             zoom 0.5
         menu:
-            "I'm good, ferris wheels are kinda boring":
-                hide ravendefault
+            "I'm good, ferris wheels are kinda boring.":
+                hide ravensurprised
                 show ravenannoyed at center:
                     zoom 0.5
                 $sus_points += 1
                 raven "What?! I love ferris wheels, they give us such a nice view! I'm going regardless."
-                you "Ok fine I'll go with you"
+                you "Okay fine, I'll go with you."
                 hide ravenannoyed
                 show ravenblush at center:
                     zoom 0.5
-                raven "Great! lets go!"
+                raven "Great! Let's go!"
                 jump ferris_wheel
-            "Sure! lets go check it out!":
-                hide ravendefault
+            "Sure! Let's go check it out!":
+                hide ravensurprised
                 show ravenblush at center:
                     zoom 0.5
-                raven "Great! I love that we're on the same page"
+                raven "Great! I love that we're on the same page.s"
                 jump ferris_wheel
 
     label ferris_wheel:
 
         "Raven and I get on the Ferris wheel."
-        "The city lights grew smaller and smaller as we rose up into the darkened sky."
+        "The city lights grew smaller and smaller as we rose up into the bright sky."
         hide ravenblush
         show ravendefault at center:
             zoom 0.5
 
-        raven "I love this view! It's so peaceful and this breeze is to die for."
+        raven "I love this view! It's so peaceful, and this breeze is to die for."
 
         you "I agree, it really is something else."
 
         "Suddenly, I remember looking through her dating profile and I didn't see anything about other social media 
         platforms online."
-        "Its almost as if she is trying to hide her online presence"
+        "...Almost as if she is trying to hide her online presence."
         menu:
 
             "So, do you have social media or anything?":
@@ -520,22 +512,22 @@ label start:
         show ravensurprised at center:
             zoom 0.5
         raven "Wait you don't watch any TV!?"
-        raven "I should show you some good shows or movies"
+        raven "I should show you some good shows or movies."
         hide ravensurprised
         show ravenhappy at center:
             zoom 0.5
         you "Sounds great! We can watch some at:"
         menu:
-            "my place":
-                you "my place later!"
+            "My place":
+                you "...my place later!"
                 hide ravenhappy
                 show ravenblush at center:
                     zoom 0.5
                 raven "Sure! I'd be glad to go to your place!"
                 jump playerHouse
                 return
-            "her place":
-                you "your place, if you can"
+            "Her place":
+                you "...your place, if you can."
                 hide ravenhappy
                 show ravensurprised at center:
                     zoom 0.5
@@ -544,7 +536,7 @@ label start:
                 hide ravensurprised
                 show ravenblush at center:
                     zoom 0.5
-                raven "Sure...! Lets do my place"
+                raven "Sure...! Let's do my place."
                 jump ravenHouse
                 return
 
@@ -552,25 +544,25 @@ label start:
         hide ravendefault
         show ravensurprised at center:
             zoom 0.5
-        raven "Woah you don't seem like the kind of guy to watch comedies"
+        raven "Woah, you don't seem like the kind of guy to watch comedies."
         you "Yeah I have a funny bone in me..."
         hide ravensurprised
         show ravenhappy at center:
             zoom 0.5
-        raven "Yeah I guess people like what they like, I haven't seen many comedies"
-        you "I can show you a couple of my favorites if you have time"
+        raven "Yeah, I guess people like what they like. I haven't seen many comedies."
+        you "I can show you a couple of my favorites if you have time."
         raven "I have time right now, where do you want to go?"
         menu:
-            "my place":
-                you "We can go to my place"
+            "My place":
+                you "...my place later!"
                 hide ravenhappy
                 show ravenblush at center:
                     zoom 0.5
                 raven "Sure! I'd be glad to go to your place!"
                 jump playerHouse
                 return
-            "her place":
-                you "your place, if you can"
+            "Her place":
+                you "...your place, if you can."
                 hide ravenhappy
                 show ravensurprised at center:
                     zoom 0.5
@@ -579,31 +571,30 @@ label start:
                 hide ravensurprised
                 show ravenblush at center:
                     zoom 0.5
-                raven "Sure...! Lets do my place"
+                raven "Sure...! Let's do my place."
                 jump ravenHouse
                 return
     
     label wrapUpCarnival:
         hide ravensurprised
-        "We had fun at the carnival for some more time"
-        "After a while"
+        "We had fun at the carnival for some more time."
         show ravendefault at center:
             zoom 0.5
         raven "This carnival is so much fun, but I'm getting tired, do you want to go somewhere else?"
-        "Honestly, food, a good walk around the carnival, I'm feeling tired too"
+        "Honestly, food, a good walk around the carnival, I'm feeling tired too."
         "How about..."
-        menu:    
-            "my place":
-                you "We can go to my place"
-                hide ravendefault
+        menu:
+            "My place":
+                you "...my place later!"
+                hide ravenhappy
                 show ravenblush at center:
                     zoom 0.5
                 raven "Sure! I'd be glad to go to your place!"
                 jump playerHouse
                 return
-            "your place":
-                you "your place, if you can"
-                hide ravendefault
+            "Her place":
+                you "...your place, if you can."
+                hide ravenhappy
                 show ravensurprised at center:
                     zoom 0.5
                 raven "MY place!? I..."
@@ -611,15 +602,15 @@ label start:
                 hide ravensurprised
                 show ravenblush at center:
                     zoom 0.5
-                raven "Sure...! Lets do my place"
+                raven "Sure...! Let's do my place."
                 jump ravenHouse
                 return
 
     label playerHouse:
         hide ravenblush
-        "We leave the carnival with Raven and go to my apartment"
+        "We leave the carnival with Raven and go to my apartment."
         hide carnival
-        "We talked some more about what we did, and finally arrive at my place"
+        "We talked some more about what we did, and finally arrive at my place."
         show ravendefault at center:
             zoom 0.5 
         raven "Oh wow, this is such a nice apartment!"
@@ -637,7 +628,7 @@ label start:
     label flirt:
         raven "Oh, it’s such a shame that I’m here for just a little while."
         menu: 
-            "I wish you’d stay here longer":
+            "I wish you’d stay here longer.":
                 jump Flirt2
                 return
             "So what do you want to do?":
@@ -650,12 +641,13 @@ label start:
 
         "Raven smiles at you"
 
-        "You continue to flirt with Raven"
+        "I continue to flirt with Raven."
 
         jump stopFlirt
         return
 
     label stopFlirt:
+
         raven "What do YOU want to do? Do you want to watch a movie or something?"
 
         raven "Can you play a horror movie? I love those so much!"
