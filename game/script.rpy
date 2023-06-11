@@ -870,7 +870,6 @@ label start:
         jump continueTalk
 
     label evasive_response:
-	
         "Raven talks to you in the distance as she goes to the kitchen"
 
         raven "Are you feeling okay there? You seem kind of pale, why don’t you sit down for a minute?"
@@ -881,14 +880,13 @@ label start:
 
     label continueTalk:
 
-    raven "Say, it’s still early, do you want to watch a movie with me?"
+        raven "Say, it’s still early, do you want to watch a movie with me?"
 
-    "Raven proposes an idea that could lead this night into something else"
+        "Raven proposes an idea that could lead this night into something else"
     
     menu:
 
         "Um… actually I…":
-		
             jump twist_build_up
 
         "Well, y…":
@@ -942,13 +940,13 @@ label start:
 
         menu:
 
-        "They actually do that? What the hell?"
+            "They actually do that? What the hell?":
 
-            jump knowMoreBlade
+                jump knowMoreBlade
 
-        "Oh, wow, I’d love to try that myself sometime"
+            "Oh, wow, I’d love to try that myself sometime":
 
-            jump ContinueBadEnding
+                jump ContinueBadEnding
 
 
     label bad_wine:
@@ -964,12 +962,12 @@ label start:
 
         menu: 
 
-        "Oh man, your brother does some crazy things!"
+            "Oh man, your brother does some crazy things!":
 
-            jump playCool
+                jump playCool
 
-        "Uh, he stabbed someone with a katana? That’s funny to you?"
-            jump confrontHer
+            "Uh, he stabbed someone with a katana? That’s funny to you?":
+                jump confrontHer
 
 
     label playCool:
@@ -978,7 +976,7 @@ label start:
 
         "You decided to ignore Raven’s comment and just play it cool."
 
-            jump closeToEnding
+        jump closeToEnding
 
     
     label confrontHer:
@@ -990,7 +988,7 @@ label start:
             zoom 0.5
         raven "Two days ago. My brother asked me to help him get rid of him later too. He just told me to help him carry it to his car and after that I don’t know what happened."
 
-            jump killerUnmasked
+        jump killerUnmasked
 
 
     label closeToEnding:
@@ -1025,112 +1023,108 @@ label start:
         "Raven and you say to each other your goodbyes, and you start the trek back home."
 
     #Start from here 
-    Jump BackHome
+        jump BackHome
 
-    Label: SerialKiller
+    label SerialKiller:
 
-    Raven: Well, can you wake up?! I swear, I even tried to just knock you down with the wine, but damn you sure took a couple of blows before you lost consciousness. 
+        raven "Well, can you wake up?! I swear, I even tried to just knock you down with the wine, but damn you sure took a couple of blows before you lost consciousness."
 
-    You wake up to a yelling Raven in front of you.
+        "You wake up to a yelling Raven in front of you."
 
-    Menu: 
+    menu: 
 
-    Player: What is going on here?
+        "What is going on here?":
+            jump capturedAnswerOne
 
-        Jump capturedAnswerOne
+        "What happened?":
+            jump capturedAnswerTwo
 
-    Player: What happened?
+    label capturedAnswerOne:
 
-        Jump capturedAnswerTwo
+        raven "WhAt iS gOiNG on… if you focus for once, you’d notice that you’re trapped. DUH."
 
-    Label: capturedAnswerOne
+        raven "I guess picking up on clues and realizing your current situation are two things you really suck at."
 
-    Raven: WhAt iS gOiNG on… if you focus for once, you’d notice that you’re trapped. DUH.
+        raven "or what? Did you really feel that I was interested in you? Have you watched the news recently?"
 
-    Raven: I guess picking up on clues and realizing your current situation are two things you really suck at.
-
-    Raven: or what? Did you really feel that I was interested in you? Have you watched the news recently?  
-
-    Raven: Oh, wild serial killer going on a rampage. I swear, those idiots are exaggerating. I only killed two people, and one wasn’t even me. It was my brother, I just happened to be there at the wrong time.
+        raven "Oh, wild serial killer going on a rampage. I swear, those idiots are exaggerating. I only killed two people, and one wasn’t even me. It was my brother, I just happened to be there at the wrong time."
 
 
-    Label: capturedAnswerTwo
+    label capturedAnswerTwo:
 
-    Raven wHaT HapPenNed? Ugh, I can’t deal with you anymore. I kidnapped you. I thought that would be obvious with the ropes on your extremities and the basement? 
+        raven "wHaT HapPenNed? Ugh, I can’t deal with you anymore. I kidnapped you. I thought that would be obvious with the ropes on your extremities and the basement?"
 
-    Raven: If you didn’t notice, the “weird taste” in the wine were some drugs I put in there to knock you out. 
+        raven "If you didn’t notice, the “weird taste” in the wine were some drugs I put in there to knock you out. "
 
-    Jump backOnTrack
-
-
-    Label: backOnTrack
-
-    Raven just keeps complaining about her situation 
-
-    Menu:
-
-    Why are you doing this?
-
-    Jump setUpKill
-
-    Label setUpKill
-
-    Raven Why? Well, If I’m being honest, when my brother killed that coworker, I felt a surge of adrenaline in my body. 
-
-    Raven You see, killing is depicted as such a bad act and you shouldn’t do it, but… heh
-
-    Raven When I killed my first victim, I’m telling you, I never felt more alive. 
-
-    Raven His screams were music to my ears, his grunts as he was falling to the floor were so damn satisfying, I just knew I had to keep going.
-
-    Raven So I went into this dating app where I just knew it’d be easy to lure people into my house.
-
-    Raven I just had to pretend to be interested in whatever crap they’re saying and hey, sometimes I can get away with a free meal or two. 
-
-    Raven: But I digress, anyway, enjoy being on the news tomorrow. Be sure to make a pretty face for them when they find you… assuming they do, of course
-
-    As soon as Raven finishes talking she grabs a knife and starts stabbing you.
-
-    All you can really hear is her laugh as she continues to pull that knife in and out of your body.
-
-    Jump newsFlash
+        jump backOnTrack
 
 
-    Label newsFlash
+    label backOnTrack:
 
-    A month later
+        "raven just keeps complaining about her situation"
 
-    The killer’s whereabouts are still unknown to this day. A body was recently found at a carnival that was taking place in town weeks ago. 
+        menu:
+            "Why are you doing this?":
+                jump setUpKill
 
-    Several injuries were found in the body from what appear to be knife stabs. The killer is suspected to be the same one related to a worker in a wine store.
+    label setUpKill:
 
-    Be safe out there, folks. The killer is still out there, and we don’t know where, how, or when we are going to catch whoever it is.
+        raven "Why? Well, If I’m being honest, when my brother killed that coworker, I felt a surge of adrenaline in my body. "
 
-    The End.
+        raven "You see, killing is depicted as such a bad act and you shouldn’t do it, but… heh"
 
-    Ending 3, Raven’s House: Player escapes.
+        raven "When I killed my first victim, I’m telling you, I never felt more alive. "
 
-    Label: BackHome
+        raven "His screams were music to my ears, his grunts as he was falling to the floor were so damn satisfying, I just knew I had to keep going."
 
-    You arrive back home. 
+        raven "So I went into this dating app where I just knew it’d be easy to lure people into my house."
 
-    It for sure was a long day
+        raven "I just had to pretend to be interested in whatever crap they’re saying and hey, sometimes I can get away with a free meal or two. "
 
-    You get ready to go to bed, and as soon as your head hits the pillow, you doze off.
+        raven "But I digress, anyway, enjoy being on the news tomorrow. Be sure to make a pretty face for them when they find you… assuming they do, of course"
 
-    The next morning, you start your day just as any other. You get ready to go to your classes, so while making breakfast, you pick up your phone and hop into social media.
+        "As soon as Raven finishes talking she grabs a knife and starts stabbing you."
 
-    As you scroll down, you stumble upon a headline that says “Disturbing news in regards to the case about the two serial killers that are running rampant even today.”
+        "All you can really hear is her laugh as she continues to pull that knife in and out of your body."
 
-    You continue to read
+        jump newsFlash
 
-    “A new body was found in the killer’s car. After the killer was interrogated, he revealed that his sister helped him with the murder.”
 
-    “The whereabouts of his accomplice are unknown, although some witnesses claim that she was seen eating at a restaurant with someone else, and later that night, another witness claims that she was seen walking around the carnival downtown.”
+    label newsFlash:
 
-    “If you see a person with this description” * Show picture of Raven * “Beware, as she is a serial killer on the run”   
+        "A month later"
 
-    The End.
+        "The killer’s whereabouts are still unknown to this day. A body was recently found at a carnival that was taking place in town weeks ago. "
+
+        "Several injuries were found in the body from what appear to be knife stabs. The killer is suspected to be the same one related to a worker in a wine store."
+
+        "Be safe out there, folks. The killer is still out there, and we don’t know where, how, or when we are going to catch whoever it is."
+
+        "The End."
+
+    #Ending 3, Raven’s House: Player escapes.
+
+    label BackHome:
+
+        "You arrive back home. "
+
+        "It for sure was a long day"
+
+        "You get ready to go to bed, and as soon as your head hits the pillow, you doze off."
+
+        "The next morning, you start your day just as any other. You get ready to go to your classes, so while making breakfast, you pick up your phone and hop into social media."
+
+        "As you scroll down, you stumble upon a headline that says “Disturbing news in regards to the case about the two serial killers that are running rampant even today.”"
+
+        "You continue to read"
+
+        "“A new body was found in the killer’s car. After the killer was interrogated, he revealed that his sister helped him with the murder.”
+
+        “The whereabouts of his accomplice are unknown, although some witnesses claim that she was seen eating at a restaurant with someone else, and later that night, another witness claims that she was seen walking around the carnival downtown.”"
+
+        "“If you see a person with this description” * Show picture of Raven * “Beware, as she is a serial killer on the run”"
+
+        "The End."
 
     # This ends the game.
 
