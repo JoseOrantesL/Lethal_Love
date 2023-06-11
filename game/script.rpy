@@ -1024,6 +1024,7 @@ label start:
         "The night continues, yet you decided to go home for the night."
         "Raven and you say to each other your goodbyes, and you start the trek back home."
 
+    #Start from here 
     Jump BackHome
 
     Label: SerialKiller
