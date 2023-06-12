@@ -1003,7 +1003,6 @@ label start:
 
     label playCool:
 
-
         raven "I know, right? So funny. Although, the worker was kinda heavy. Last time I saw the body, my brother told me that he was going to take care of it."
 
         "I decided to ignore Raven’s comment and just play it cool."
