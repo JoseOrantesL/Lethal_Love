@@ -19,7 +19,8 @@ label start:
     $sus_points = 0
     $suit = False
     $appetizer = ""
-    scene bedroom
+    scene bedroom at center:
+        "bedroom.png"
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -344,8 +345,7 @@ label start:
 
     "I arrive at the carnival with Raven."
     scene carnival at center:
-        zoom 7
-        "carnival.png"
+        "carnivalday.jpg"
     play sound "carnival.mp3"
     show ravendefault at center:
         zoom 0.5
@@ -613,6 +613,8 @@ label start:
         
         "We leave the carnival with Raven and go to my apartment."
         hide carnival
+        scene playerhouse at center:
+            "playerhouse.png"
         "We talked some more about what we did, and finally arrive at my place."
         show ravendefault at center:
             zoom 0.5 
@@ -850,10 +852,10 @@ label start:
         return
 
     label ravenHouse:
-        hide carnival
         hide ravenblush
         "We arrive at Raven's house."
-
+        scene ravenhouse at center:
+            "ravenhouse.png"
         "As I step into the darkened room, I begin to get uneasy about the isolated location. 
         It almost seemed as if it was in the middle of nowhere. But then again, rent must be cheap."
         "When I look around and notice that Raven has multiple sharp objects around her house."
@@ -964,8 +966,8 @@ label start:
                 jump knowMoreBlade
 
             "Oh, wow, I’d love to try that myself sometime":
-
-                jump ContinueBadEnding
+                hide ravensurprised
+                jump continueBadEnding
 
     label bad_wine:
         hide ravensurprised
@@ -973,7 +975,15 @@ label start:
             zoom 0.5
         raven "Oh really? That’s a shame."
         hide ravensad
+        hide ravensad
+        hide ravendefault
+        hide ravenhappy
         jump continueBadEnding
+
+    label continueBadEnding:
+        "Things got awkward after that conversation"
+        jump closeToEnding
+
 
     label knowMoreBlade:
         hide ravensurprised
@@ -1035,6 +1045,10 @@ label start:
                     zoom 0.5
                 raven "Yay!"
                 jump closeToEnding
+
+
+        
+
     label closeToEnding:
         hide ravenhappy
         "We continued watching the movie with Raven in silence."
@@ -1071,7 +1085,10 @@ label start:
         jump BackHome
 
     label SerialKiller:
-
+        
+        scene basement at center:
+            zoom 2
+            "basement.jpg"
         show ravenannoyed at center:
             zoom 0.5
         raven "Well, can you wake up?! I swear, I even tried to just knock you down with the wine, but damn you sure took a couple of blows before you lost consciousness."
@@ -1163,6 +1180,8 @@ label start:
     #Ending 3, Raven’s House: Player escapes.
 
     label BackHome:
+        scene playerhouse at center:
+            "playerhouse.png"
 
         "You arrive back home. "
 
